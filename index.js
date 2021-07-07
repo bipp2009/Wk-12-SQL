@@ -85,23 +85,38 @@ const addRole = () => {
   getUsersAction();
 }
 
-const ViewDepartments = () => {
+const ViewDepartments = async () => {
   console.log("user clicked view department");
+  const query = "SELECT * FROM department"
+  await connection.query(query, (err, res) => {
+    if (err) throw err; 
+    console.table(res) 
+  })
   getUsersAction();
 }
 
-const Viewroles = () => {
+const Viewroles = async () => {
   console.log("user clicked view roles");
+  const query = "SELECT * FROM role"
+  await connection.query(query, (err, res) => {
+    if (err) throw err;
+    console.table(res) 
+  })
   getUsersAction();
 }
 
-const Viewemployees = () => {
+const Viewemployees = async () => {
   console.log("user clicked view employees");
+  const query = "SELECT * FROM employee"
+  await connection.query(query, (err, res) => {
+    if (err) throw err;
+    console.table(res)
+  })
   getUsersAction();
 }
 
 const Updateemployeeroles = () => {
   console.log("user clicked update employee roles");
-  getUsersAction;
+  getUsersAction();
 }
 
