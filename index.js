@@ -70,8 +70,18 @@ const getUsersAction = () => {
 //activiy 17 connection queries
 const addDepartment = () => {
   console.log("User clicked add department"); 
-
-  getUsersAction();
+  inquirer.prompt({
+    name: "name",
+    type: "input",
+    message: "What is the name of the Department you want to add?"
+  }).then((userAnswer) => {
+    const query = "INSERT INTO department SET ?"; 
+    connection.query(query, userAnswer, (err, res) => {
+      if(err) throw err;
+      console.log("Successfully added your department")
+      getUsersAction();
+      })
+  })
 }
 
 const addEmployee = () => {
@@ -120,3 +130,4 @@ const Updateemployeeroles = () => {
   getUsersAction();
 }
 
+// Select function

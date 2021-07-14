@@ -14,6 +14,7 @@ Design the following database schema containing three tables:
   * **name** - VARCHAR(30) to hold department name
 
 * **role**:
++
 
   * **id** - INT PRIMARY KEY
   * **title** -  VARCHAR(30) to hold role title
