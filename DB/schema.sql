@@ -1,7 +1,7 @@
 DROP DATABASE IF exists employee;
 
 CREATE DATABASE employee;
-USE employee;
+USE employee;5
 
 CREATE table department(
 id INT NOT NULL AUTO_INCREMENT,

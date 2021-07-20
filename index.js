@@ -59,7 +59,7 @@ const getUsersAction = () => {
           Viewemployees();
           break;
         case "Update employee roles":
-          Updateemployeeroles();
+          updateEmployeeRoleInfo();
           break;
         default:
           console.log(`Invalid action: ${answer.action}`);
@@ -214,12 +214,117 @@ const Viewemployees = async () => {
   getUsersAction();
 };
 
-const Updateemployeeroles = () => {
-  console.log("user clicked update employee roles");
-  getUsersAction();
+const updateRoleInfo = () => {
+  console.log("user clicked update role");
+  const firstQuery = "SELECT * FROM role";
+  connection.query(firstQuery, (err, res) => {
+    inquirer
+      .prompt([
+        {
+          name: "title",
+          type: "input",
+          message: "What is the title?",
+        },
+        {
+          name: "id",
+          type: "list",
+          choices() {
+            const rolesInDatabase = [];
+            res.forEach((element) => {
+              rolesInDatabase.push({
+                name: element.name,
+                value: element.id,
+              });
+            });
+            return rolesInDatabase;
+          },
+        },
+      ])
+      .then((userAnswers) => {
+        connection.query(
+          "UPDATE role SET title = ? WHERE id = ?",
+          [userAnswers["title"], userAnswers["id"]],
+          (err, res) => {
+            if (err) throw err;
+            console.log("Successfully updated role");
+            getUsersAction();
+          }
+        );
+
+        // const secondQuery = "INSERT INTO ROLE SET ?";
+        // connection.query(secondQuery, userAnswers, (err, res) => {
+        //   if (err) throw err;
+
+        //   console.log("Successfully added your role");
+        //   getUsersAction();
+        // });
+      });
+  });
 };
 
-// update employee roles Q: which role? 
-// conncetion .query 
+const updateEmployeeRoleInfo = () => {
+  const firstQuery = "SELECT * FROM employee";
+  let id;
+  connection.query(firstQuery, (err, res) => {
+    inquirer
+      .prompt([
+        {
+          name: "id",
+          type: "list",
+          message: "Please select employee you want to update:",
+          choices() {
+            const employeesInDatabase = [];
+            res.forEach((element) => {
+              employeesInDatabase.push({
+                name: element.first_name + " " + element.last_name,
+                value: element.id,
+              });
+            });
+            return employeesInDatabase;
+          },
+        },
+      ])
+      .then((userAnswers) => {
+        id = userAnswers.id;
+        const secondQuery = "SELECT * FROM role";
+        connection.query(secondQuery, (err, res) => {
+          inquirer
+            .prompt([
+              {
+                name: "id",
+                type: "list",
+                message:
+                  "What is the role you want to update the employee with:",
+                choices() {
+                  const rolesInDatabase = [];
+                  res.forEach((element) => {
+                    console.log(element)
+                    rolesInDatabase.push({
+                      name: element.title,
+                      value: element.id,
+                    });
+                  });
+                  return rolesInDatabase;
+                },
+              },
+            ])
+            .then((userRoleAnswers) => {
+              connection.query(
+                "UPDATE employee SET role_id = ? WHERE id = ?",
+                [userRoleAnswers["id"], id],
+                (err, res) => {
+                  if (err) throw err;
+                  console.log("Successfully updated role");
+                  getUsersAction();
+                }
+              );
+            });
+        });
+      });
+  });
+};
+
+// update employee roles Q: which role?
+// conncetion .query
 //then update roles
 // Why is it adding empty department every time, and duplicates?
