@@ -71,5 +71,3 @@ The following have been submitted:
 
 ![video](https://github.com/bipp2009/Wk-12-SQL/blob/master/walkthru_video.mp4)
 
-- - -
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
