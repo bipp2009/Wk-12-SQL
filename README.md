@@ -27,7 +27,7 @@ The user is presented with a command-line application and can scroll up/down to 
 
   * Update employee roles
 
-![image]()
+![image](https://github.com/bipp2009/Wk-12-SQL/blob/master/image.png)
 
 ## Contributing
 Bipin Patel developer email: bipp2009@gmail.com or git hub repo bipp2009
@@ -69,39 +69,7 @@ The following have been submitted:
 
 * A video demonstrating the entirety of the app's functionality 
 
-
-The user is presented with a command-line application and can scroll up/down to do the following:
-
-  * Add departments, roles, employees
-
-  * View departments, roles, employees
-
-  * Update employee roles
-
-## Minimum Requirements criteria
-
-The application meets the following project criteria:
-
-* Functional application.
-
-* GitHub repository with a unique name and a README describing the project.
-
-* The command-line application should allow users to:
-
-  * Add departments, roles, employees
-
-  * View departments, roles, employees
-
-  * Update employee roles
-
-## Submission on BCS
-
-You are required to submit the following:
-
-* The URL of the GitHub repository
-
-* A video demonstrating the entirety of the app's functionality 
-![video]()
+![video](https://github.com/bipp2009/Wk-12-SQL/blob/master/walkthru_video.mp4)
 
 - - -
 © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
