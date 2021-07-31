@@ -69,5 +69,6 @@ The following have been submitted:
 
 * A video demonstrating the entirety of the app's functionality 
 
-![video](https://github.com/bipp2009/Wk-12-SQL/blob/master/walkthru_video.mp4)
+![Video Demo] {https://drive.google.com/file/d/1MbWmH1_Yld-ZhYW_F4Giw_XKFGaAf5FP/view?usp=sharing}
 
+A link to the video on Google Drive
